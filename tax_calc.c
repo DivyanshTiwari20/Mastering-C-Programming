@@ -10,23 +10,26 @@
 
 int main() {
 
-    float income;
+    float income,tax=0.0;
 
     printf("Enter your annual income in lakhs(L):\n");
     scanf("%f", &income);
 
-    if(income<2.5){
-        printf("There is no tax for you!!");
-    }else if (income>=2.5)
-    {
-        printf("You have to pay a tax of %.2f",(income*100000)*5/100);
-    }
-    else if (income>=5.0){
-        printf("You have to pay a tax of %.2f",(income*100000)*20/100);
-    }
-    else if (income>=10.0){
-        printf("You have to pay a tax of %.2f",(income*100000)*30/100);
+// Calculate tax based on the income slab
+    if (income <= 250000) {
+        tax = 0.0;
+    } else if (income <= 500000) {
+        tax = (income - 250000) * 0.05;
+    } else if (income <= 1000000) {
+        tax = (income - 500000) * 0.20 + 250000 * 0.05;
+    } else {
+        tax = (income - 1000000) * 0.30 + 500000 * 0.20 + 250000 * 0.05;
     }
     
+    // Output the tax amount
+    printf("The income tax to be paid is: Rs. %.2f\n", tax);
+    
     return 0;
+
+
 }
