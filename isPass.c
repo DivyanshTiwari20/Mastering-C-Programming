@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 int main() {
-    float mark1, mark2, mark3, total , percentage;
+    float mark1, mark2, mark3, total_percentage;
 
     printf("Enter you mark for first subject:\n");
     scanf("%f",&mark1);
@@ -14,7 +14,15 @@ int main() {
     printf("Enter you mark for third subject:\n");
     scanf("%f",&mark3);
 
+    total_percentage= (mark1+mark2+mark3)/3;
 
-    if ()    
+    if (mark1>=33 &&  mark2>=33 && mark3>=33 && total_percentage >=40){
+        printf("Congratulations! You have passed.\n");
+    } else {
+        printf("Sorry, you have failed.\n");
+    }
+
+
+    printf("Your total percentage is %.2f%%\n", total_percentage);    
     return 0;
 }
